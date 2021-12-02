@@ -2,11 +2,11 @@ const formDocModel = require("../schema/formDocSchema").formDocModel
 const formModel = require("../schema/formSchema").formModel;
 
 module.exports.addFormData = async (req, res) => {
-    const formName = req.params.formName
-    const formId = req.params.formId
+    const formName = req.params.formName    
     const data = req.body;
     console.log("Form Doc req :", req,req.body,formName);
     const form = await formModel.findOne({ name: formName });
+    const formId = form._id
     console.log('iddddd ',form._id)
     // const modelId = req.model_id;
     const path = null;
