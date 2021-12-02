@@ -11,4 +11,4 @@ const modelSchema = new Schema(
     { timestamps: { createdAt: true, updatedAt: true } }
 );
 
-module.exports.modelModel = model("CMS_dynamic", modelSchema);
+module.exports.modelModel = model("CMS1_Models", modelSchema);
