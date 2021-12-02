@@ -32,3 +32,37 @@ module.exports.readValidateByFormName = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
+
+module.exports.readValidateByValidationName = async (req, res) => {
+  try {
+    const Name = req.params.Name;
+    console.log("nAme :", Name);
+    const data = await validateModel.find({ name: Name });
+    if (!data) {
+      res.sendStatus(404);
+    }
+    res.send(data);
+  } catch {
+    res.sendStatus(500);
+  }
+};
+
+module.exports.readAllValidation = async (req, res) => {
+  const Forms = await validateModel.find({});
+  res.send(Forms);
+};
+
+module.exports.updateValidationForm = async (req, res) => {
+  console.log("req up", req);
+  // const formId = req.params.formId;
+  // const data = req.body;
+  // console.log("req up", req,req.body,formId);
+
+  //   await formModel.findByIdAndUpdate(
+  //     { _id: formId },
+  //     { $set: { formSchema: data} }
+  //   )
+
+  // res.send("Document Updated Successfully");
+};
