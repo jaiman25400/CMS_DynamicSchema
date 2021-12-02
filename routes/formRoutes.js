@@ -22,6 +22,6 @@ router.put("/updateForm/:formId", formController.updateForm)
 router.delete("/deleteForm/:formId", formController.deleteForm)
 
 //Add Form Docs With Schema
-router.post("/createFormDoc/:formName/:formId", formDocController.addFormData)
+router.post("/createFormDoc/:formName", formDocController.addFormData)
 
 module.exports = router;
