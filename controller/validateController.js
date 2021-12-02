@@ -54,15 +54,15 @@ module.exports.readAllValidation = async (req, res) => {
 };
 
 module.exports.updateValidationForm = async (req, res) => {
-  console.log("req up", req);
-  // const formId = req.params.formId;
-  // const data = req.body;
+  console.log("req up", req.body);
+  const formId = req.params.ValiId;
+  const data = req.body;
   // console.log("req up", req,req.body,formId);
 
-  //   await formModel.findByIdAndUpdate(
-  //     { _id: formId },
-  //     { $set: { formSchema: data} }
-  //   )
+    await validateModel.findByIdAndUpdate(
+      { _id: formId },
+      { $set: { validationSchema: data} }
+    )
 
-  // res.send("Document Updated Successfully");
+  res.send("Document Updated Successfully");
 };

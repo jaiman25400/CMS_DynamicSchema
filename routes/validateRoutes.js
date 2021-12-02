@@ -16,7 +16,7 @@ router.get("/readValidateByItsName/:Name", validateController.readValidateByVali
 router.get("/readValidate", validateController.readAllValidation);
 
 //Update Form With Schema
-router.put("/updateValidationForm/:name", validateController.updateValidationForm)
+router.put("/updateValidationForm/:ValiId", validateController.updateValidationForm)
 
 
 
