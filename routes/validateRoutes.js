@@ -18,6 +18,7 @@ router.get("/readValidate", validateController.readAllValidation);
 //Update Form With Schema
 router.put("/updateValidationForm/:ValiId", validateController.updateValidationForm)
 
-
+// Delete Form From Database
+router.delete("/deleteForm/:id", validateController.deleteValidateForm)
 
 module.exports = router;

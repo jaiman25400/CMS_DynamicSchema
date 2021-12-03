@@ -33,7 +33,6 @@ module.exports.readValidateByFormName = async (req, res) => {
   }
 };
 
-
 module.exports.readValidateByValidationName = async (req, res) => {
   try {
     const Name = req.params.Name;
@@ -66,3 +65,9 @@ module.exports.updateValidationForm = async (req, res) => {
 
   res.send("Document Updated Successfully");
 };
+
+module.exports.deleteValidateForm = async (req, res) => {
+  const modelId = req.params.id
+  await validateModel.findByIdAndDelete(modelId);
+  res.send("Document Deleted Sucessfully")
+}
