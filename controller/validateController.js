@@ -9,7 +9,7 @@ module.exports.addvalidateData = async (req, res) => {
   const name = req.body.title.formTitle;
   console.log("Form Doc req :", req.body);
   console.log('idccc',formId)
-
+  
   await validateModel.create({
     formName,
     form: formId,

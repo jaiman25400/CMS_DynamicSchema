@@ -1,4 +1,5 @@
 const formModel = require("../schema/formSchema").formModel;
+const validateModel = require("../schema/validationSchema").validationModel;
 
 module.exports.getAllForms = async (req, res) => {
     const Forms = await formModel.find({});
@@ -40,6 +41,11 @@ module.exports.updateForm = async (req, res) => {
       await formModel.findByIdAndUpdate(
         { _id: formId },
         { $set: { formSchema: data} }
+      )
+
+      await validateModel.findOneAndUpdate(
+        { _id: formId },
+        { $push: {validationSchema : data} }
       )
   
     res.send("Document Updated Successfully");
