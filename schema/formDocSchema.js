@@ -9,7 +9,8 @@ const formDocSchema = new Schema(
         form: { type: mongoose.Schema.Types.ObjectId, ref: "Form" },
         formName: { type: String, required: true },
         data: { type: Object, required: true },
-        fileName : {type : String}
+        fileName : {type : String},
+        mediaName :  { type: String, required: true },
     },
     { timestamps: { createdAt: true, updatedAt: true } }
 );

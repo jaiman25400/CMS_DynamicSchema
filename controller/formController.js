@@ -9,7 +9,7 @@ module.exports.getAllForms = async (req, res) => {
 module.exports.getformByName = async (req, res) => {
   try {
     const Name = req.params.Name;
-    console.log("nAme :", Name);
+    console.log("form name :", Name);
     const data = await formModel.find({ name: Name });
     if (!data) {
       res.sendStatus(404);

@@ -17,7 +17,7 @@ mongoose.connect(mongoDbUrl, { useNewUrlParser: true })
 
 
 app.use(cors())
-app.use(express.static(`${__dirname}/public`))
+app.use(express.static(`${__dirname}/public/Media`))
 app.use(express.json());
 app.use(fileUpload({
     createParentPath: true
@@ -29,12 +29,16 @@ app.use(morgan("CMS-NODEJS-UI"))
 const docRoutes = require('./routes/docRoutes')
 const modelRoutes = require('./routes/modelRoutes')
 const formRoutes = require('./routes/formRoutes')
+const searchRoutes = require('./routes/searchRoutes')
 const validateRoutes = require('./routes/validateRoutes')
+const mediaRoutes = require('./routes/mediaRoutes')
 
 app.use('/docs', docRoutes)
 app.use('/model', modelRoutes)
 app.use('/form', formRoutes)
 app.use('/validate',validateRoutes)
+app.use('/search',searchRoutes)
+app.use('/media',mediaRoutes)
 
 app.post("/picture",async (req,res) => {
     try{

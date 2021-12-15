@@ -1,6 +1,23 @@
 const formDocModel = require("../schema/formDocSchema").formDocModel
 const formModel = require("../schema/formSchema").formModel;
 
+
+
+module.exports.showFormByItsName = async (req,res) => {
+  const formName = req.params.formName
+  console.log('form Name :',formName)
+  var data = await formDocModel.find({
+    formName: formName
+  })
+  res.send(data)
+}
+
+module.exports.showFormDocById = async (req,res) => {
+  console.log('id',req.body)
+  var data = await formDocModel.find({ _id: req.body.id})
+  res.send(data)
+}
+
 module.exports.addFormData = async (req, res) => {
     const formName = req.params.formName    
     const data = req.body;
@@ -10,9 +27,10 @@ module.exports.addFormData = async (req, res) => {
     console.log('iddddd ',form._id)
     // const modelId = req.model_id;
     const path = null;
-
+    const media = req.body.MediaName[0]
+    console.log('media',media)
     if (!req.files) {
-      await formDocModel.create({ formName, form: formId, data, fileName: path });
+      await formDocModel.create({ formName, form: formId, data, fileName: path,mediaName : media });
       res.send("Document Created SuccesFully");
     } else {
       const file = req.files.file;
