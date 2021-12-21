@@ -1,12 +1,22 @@
 const formModel = require("../schema/formSchema").formModel;
 const validateModel = require("../schema/validationSchema").validationModel;
+const formDocModel = require("../schema/formDocSchema").formDocModel
 
-module.exports.getAllformByName = async (req, res) => {
+module.exports.getFormName = async (req,res) => {
+  const Name = req.body.search;
+  const Formdata =  await formModel.find({ name: Name  });
+  if( Formdata ) {
+    res.send(Formdata)
+  }
+}
+
+module.exports.getValiAndFormName = async (req, res) => {
   try {
     const Name = req.body.search;
     console.log("nAme :", req.body.search);
     const data = await validateModel.find({ name: Name });
-    const Formdata = await formModel.find({ name: Name });
+    const Formdata =  await validateModel.find({ formName: Name  });
+
     if(!data && !Formdata) {
         res.sendStatus(400)
     }

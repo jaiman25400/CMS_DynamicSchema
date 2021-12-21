@@ -4,7 +4,8 @@ const searchController = require("../controller/searchController");
 
 
 //Get Form With Name
-router.post("/", searchController.getAllformByName)
+router.post("/validation", searchController.getValiAndFormName)
 
+router.post("/Form", searchController.getFormName)
 
 module.exports = router;

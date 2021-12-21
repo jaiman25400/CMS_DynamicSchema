@@ -2,7 +2,8 @@ const formModel = require("../schema/formSchema").formModel;
 const validateModel = require("../schema/validationSchema").validationModel;
 
 module.exports.getAllForms = async (req, res) => {
-    const Forms = await formModel.find({});
+  const Forms = await formModel.find({});
+  console.log('Forms :',Forms)
     res.send(Forms)
 };
 

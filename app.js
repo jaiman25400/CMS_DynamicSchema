@@ -32,6 +32,7 @@ const formRoutes = require('./routes/formRoutes')
 const searchRoutes = require('./routes/searchRoutes')
 const validateRoutes = require('./routes/validateRoutes')
 const mediaRoutes = require('./routes/mediaRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 app.use('/docs', docRoutes)
 app.use('/model', modelRoutes)
@@ -39,6 +40,7 @@ app.use('/form', formRoutes)
 app.use('/validate',validateRoutes)
 app.use('/search',searchRoutes)
 app.use('/media',mediaRoutes)
+app.use('/user', userRoutes) 
 
 app.post("/picture",async (req,res) => {
     try{
