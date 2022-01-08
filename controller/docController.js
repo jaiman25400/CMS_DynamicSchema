@@ -50,8 +50,8 @@ module.exports.addData = async (req, res) => {
     //     console.log('ggg',attributename.name);
     // }
 
-    console.log('fileeeee',file)
-    console.log('pathfff',path)
+    // console.log('fileeeee',file)
+    // console.log('pathfff',path)
     file.mv(`public/${file.name}`, (err) => {
       if (err) {
         console.log("erre", err);
